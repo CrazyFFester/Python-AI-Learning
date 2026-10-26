@@ -19,12 +19,9 @@ try:
         writer.writeheader()
 
         for row in reader:
-            first, last = row["name"].split(", ")
+            last, first = row["name"].split(", ")
             house = row["house"]
-            writer.writerow(
-                {
-                    "first",
-                }
-            )
-except (FileExistsError, IsADirectoryError):
-    print("Could not read ")
+
+            writer.writerow({"first": first, "last": last, "house": house})
+except (FileNotFoundError, IsADirectoryError):
+    sys.exit(f"Could not read {sys.argv[1]}")
