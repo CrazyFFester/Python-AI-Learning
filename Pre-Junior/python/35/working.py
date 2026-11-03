@@ -32,12 +32,12 @@ class Time:
         return f"{hours_24h:02}:{self.minutes:02}"
 
 
-def main():
+def main() -> None:
     print(convert(input("Hours: ")))
 
 
-def convert(s):
-    match = re.fullmatch(
+def convert(s: str) -> str:
+    match: re.Match[str] | None = re.fullmatch(
         r"(?P<hours_from>\d{1,2})(?::(?P<minutes_from>\d{2}))? "
         r"(?P<meridiem_from>AM|PM) to (?P<hours_to>\d{1,2})"
         r"(?::(?P<minutes_to>\d{2}))? (?P<meridiem_to>AM|PM)",
@@ -45,49 +45,16 @@ def convert(s):
     )
 
     if match is None:
-        raise ValueError("Wrong format")
+        raise ValueError("Wrong Format")
 
-    hours_from, meridiem_from = (
-        int(match["hours_from"]),
-        match["meridiem_from"],
+    time_from: Time = Time(
+        match["hours_from"], match["minutes_from"], match["meridiem_from"]
     )
-    hours_to, meridiem_to = (int(match["hours_to"]), match["meridiem_to"])
-    minutes_from = 0
-    minutes_to = 0
+    time_to: Time = Time(
+        match["hours_to"], match["minutes_to"], match["meridiem_to"]
+    )
 
-    if hours_from in range(1, 12 + 1) and hours_to in range(1, 12 + 1):
-        if match["minutes_from"] is not None:
-            minutes_from = int(match["minutes_from"])
-
-            if minutes_from not in range(0, 59 + 1):
-                raise ValueError("Wrong Format")
-
-        if match["minutes_to"] is not None:
-            minutes_to = int(match["minutes_to"])
-
-            if minutes_to not in range(0, 59 + 1):
-                raise ValueError("Wrong Format")
-
-    else:
-        raise ValueError("Wrong format")
-
-    if meridiem_from == "PM":
-        if hours_from == 12:
-            hours_from = 0
-        hours_from += 12
-
-    if meridiem_to == "PM":
-        if hours_to == 12:
-            hours_to = 0
-        hours_to += 12
-
-    if hours_from == 12 and meridiem_from == "AM":
-        hours_from = 0
-
-    if hours_to == 12 and meridiem_to == "AM":
-        hours_to = 0
-
-    return f"{hours_from:02}:{minutes_from:02} to {hours_to:02}:{minutes_to:02}"
+    return f"{time_from.to_24h()} to {time_to.to_24h()}"
 
 
 if __name__ == "__main__":
