@@ -90,5 +90,16 @@ About 5–7 years in total: production excellence (SRE), distributed training, a
 ## Repository layout
 
 ```
-Pre-Junior/python/   early Python exercises (1.py – 12.py)
+Pre-Junior/python/        CS50P-style exercises
+├── 1.py – 24.py, 34.py   single-file exercises
+└── 25/ – 36/             exercises with pytest tests (test_*.py) and data files
+pyproject.toml, uv.lock   uv project (Python 3.13, pytest as dev dependency)
+```
+
+## Running
+
+```sh
+uv sync
+uv run pytest Pre-Junior/python
+uv run python Pre-Junior/python/36/um.py
 ```
