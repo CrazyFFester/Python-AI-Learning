@@ -15,3 +15,14 @@ def timer(func):
         return result
 
     return wrapper
+
+
+def count_calls(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        wrapper.calls += 1  # pyright: ignore[reportAttributeAccessIssue]
+        return func(*args, **kwargs)
+
+    wrapper.calls = 0  # pyright: ignore[reportAttributeAccessIssue]
+
+    return wrapper
