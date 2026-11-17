@@ -1,0 +1,14 @@
+[project]
+name = "python-ai-learning"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "fpdf2>=2.9.0",
+    "inflect>=7.6.0",
+    "validators>=0.36.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
