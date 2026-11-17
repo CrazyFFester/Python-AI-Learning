@@ -3,8 +3,13 @@ name = "python-ai-learning"
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
+    "emoji>=2.16.0",
     "fpdf2>=2.9.0",
     "inflect>=7.6.0",
+    "pillow>=13.0.0",
+    "pyfiglet>=1.0.4",
+    "requests>=2.34.2",
+    "tabulate>=0.10.0",
     "validators>=0.36.0",
 ]
 
