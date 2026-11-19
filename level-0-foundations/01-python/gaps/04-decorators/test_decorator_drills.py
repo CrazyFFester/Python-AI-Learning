@@ -28,12 +28,41 @@ class TestTimer:
         assert out.endswith("s\n")
 
     def test_exposes_wrapped(self, capsys) -> None:
-        result = slow_add.__wrapped__(1, 2)
+        result = slow_add.__wrapped__(1, 2)  # pyright: ignore[reportFunctionMemberAccess]
 
         assert result == 3
         assert capsys.readouterr().out == ""
 
 
 class TestCountCalls:
-    @pytest.mark.skip(reason="TODO: write tests for count_calls")
-    def test_todo(self) -> None: ...
+    @pytest.fixture
+    def greet(self):
+        @count_calls
+        def greet(name) -> str:
+            return f"hi {name}"
+
+        return greet
+
+    def test_counts_calls(self, greet) -> None:
+        for _ in range(3):
+            greet("Emir")
+        assert greet.calls == 3
+
+    def test_starts_at_zero(self, greet) -> None:
+        assert greet.calls == 0
+
+    def test_returns_result(self, greet) -> None:
+        assert greet("Emir") == "hi Emir"
+
+    def test_preserves_name(self, greet) -> None:
+        assert greet.__name__ == "greet"
+
+    def test_counts_failed_calls(self) -> None:
+        @count_calls
+        def boom() -> None:
+            raise ValueError("boom")
+
+        with pytest.raises(ValueError, match="boom"):
+            boom()
+
+        assert boom.calls == 1  # pyright: ignore[reportFunctionMemberAccess]
