@@ -2,7 +2,7 @@ import time
 
 import pytest
 
-from decorator_drills import count_calls, timer
+from decorator_drills import count_calls, count_calls_nonlocal, timer
 
 
 @timer
@@ -66,3 +66,22 @@ class TestCountCalls:
             boom()
 
         assert boom.calls == 1  # pyright: ignore[reportFunctionMemberAccess]
+
+
+class TestCountCallsNonlocal:
+    @pytest.fixture
+    def greet(self):
+        @count_calls_nonlocal
+        def greet(name) -> str:
+            return f"hi {name}"
+
+        return greet
+
+    def test_counts_calls(self, greet) -> None:
+        for _ in range(3):
+            greet("Emir")
+
+        assert greet.get_calls() == 3
+
+    def test_starts_at_zero(self, greet) -> None:
+        assert greet.get_calls() == 0

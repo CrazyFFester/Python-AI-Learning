@@ -26,3 +26,21 @@ def count_calls(func):
     wrapper.calls = 0  # pyright: ignore[reportAttributeAccessIssue]
 
     return wrapper
+
+
+def count_calls_nonlocal(func):
+    calls = 0
+
+    def get_calls() -> int:
+        return calls
+
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        nonlocal calls
+
+        calls += 1
+        return func(*args, **kwargs)
+
+    wrapper.get_calls = get_calls  # pyright: ignore[reportAttributeAccessIssue]
+
+    return wrapper
