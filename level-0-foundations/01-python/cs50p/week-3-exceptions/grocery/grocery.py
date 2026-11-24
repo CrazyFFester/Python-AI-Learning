@@ -1,14 +1,16 @@
-grocery_list = {}
+grocery = {}
 
 while True:
     try:
-        user_input = input().upper()
+        item = input().strip().upper()
 
-        if user_input in grocery_list.keys():
-            grocery_list[user_input] += 1
+        if item in grocery:
+            grocery[item] += 1
         else:
-            grocery_list[user_input] = 1
+            grocery[item] = 1
+
     except EOFError:
-        for k, v in grocery_list.items():
-            print(f"{v} {k}")
         break
+
+for item in sorted(grocery):
+    print(grocery[item], item)

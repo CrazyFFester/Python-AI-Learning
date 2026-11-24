@@ -1,44 +1,22 @@
-class NegativeNumeratorException(Exception):
-    def __init__(self, numerator):
-        self.numerator = numerator
+while True:
+    try:
+        x, y = input("Fraction: ").split("/")
 
-        super().__init__(f"ERROR: Negative numerator: {numerator}")
+        x = int(x)
+        y = int(y)
 
+        if x > y or x < 0 or y <= 0:
+            continue
 
-class ZeroDenominatorException(Exception):
-    def __init__(self, denominator):
-        self.denominator = denominator
+        percentage = round(x / y * 100)
+        break
 
-        super().__init__(f"ERROR: Zero denominator: {denominator}")
+    except (ValueError, ZeroDivisionError):
+        pass
 
-numerator = 0
-denominator = 0
-
-try:
-    user_input = input("Fraction: ")
-    numerator_text, denominator_text = user_input.split("/")
-
-    if not(numerator_text.isnumeric()) and not(numerator_text.isnumeric()):
-        print("Hello World")
-        raise ValueError("ERROR: used wrong format (1/1)")
-
-    numerator = int(numerator_text)
-    denominator = int(denominator_text)
-
-    if numerator < 0:
-        raise NegativeNumeratorException(numerator)
-    if denominator == 0:
-        raise ZeroDenominatorException(denominator)
-except (NegativeNumeratorException, ZeroDenominatorException) as error:
-    print(error)
-except ValueError as error:
-    print(error)
+if percentage <= 1:
+    print("E")
+elif percentage >= 99:
+    print("F")
 else:
-    fraction = numerator / denominator
-
-    if fraction <= 0.01:
-        print("E")
-    elif fraction >= 0.99:
-        print("F")
-    else:
-        print(f"{int(fraction * 100)}%")
+    print(f"{percentage}%")

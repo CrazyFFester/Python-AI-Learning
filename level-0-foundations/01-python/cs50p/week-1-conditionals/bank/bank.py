@@ -1,11 +1,8 @@
-user_input = input()
-output = 0
+greeting = input("Greeting: ").strip().lower()
 
-if user_input == "hello":
-    output = 0
-elif user_input[0] == 'h':
-    output = 20
+if greeting.startswith("hello"):
+    print("$0")
+elif greeting.startswith("h"):
+    print("$20")
 else:
-    output = 100
-
-print(output)
+    print("$100")

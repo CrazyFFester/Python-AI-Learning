@@ -1,8 +1,10 @@
-user_input = input()
+camel = input("camelCase: ")
+snake = ""
 
-for index, char in enumerate(user_input):
-    if char.isupper() and index != 0:
-        print(f"_{char.lower()}", end='')
+for char in camel:
+    if char.isupper():
+        snake += "_" + char.lower()
     else:
-        print(char.lower(), end='')
-print()        
+        snake += char
+
+print("snake_case:", snake)

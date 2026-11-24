@@ -1,13 +1,15 @@
-user_input = input()
-x = int(user_input[0])
-y = user_input[2]
-z = int(user_input[4])
+x, y, z = input("Expression: ").split()
 
-if y == '+':
-    print(x + z)
-elif y == '-':
-    print(x - z)
-elif y == '*':
-    print(x * z)
-elif y == '/':
-    print(x / z)
+x = int(x)
+z = int(z)
+
+if y == "+":
+    result = x + z
+elif y == "-":
+    result = x - z
+elif y == "*":
+    result = x * z
+elif y == "/":
+    result = x / z
+
+print(f"{result:.1f}")

@@ -1,5 +1,10 @@
-face = input()
-if face == ":)":
-    print("🙂")
-elif face == ":(":
-    print("🙁")
+def convert(text):
+    return text.replace(":)", "🙂").replace(":(", "🙁")
+
+
+def main():
+    text = input()
+    print(convert(text))
+
+
+main()

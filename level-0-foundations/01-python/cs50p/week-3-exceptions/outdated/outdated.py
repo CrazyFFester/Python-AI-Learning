@@ -1,5 +1,3 @@
-import re
-
 months = [
     "January",
     "February",
@@ -15,26 +13,27 @@ months = [
     "December"
 ]
 
-day = 0
-month = 0
-year = 0
+while True:
+    date = input("Date: ").strip()
 
-try:
-    row_date = input("Date: ")
+    try:
+        if "/" in date:
+            month, day, year = map(int, date.split("/"))
+        else:
+            month, day, year = date.split()
 
-    if match := re.search(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", row_date):
-        month, day, year = map(int, match.groups())
-    elif match := re.search(r"^([a-z]+) (\d{1,2}), (\d{4})$", row_date,
-                            re.IGNORECASE):
-        month_name = match.group(1).title()
+            if not day.endswith(","):
+                continue
 
-        if month_name not in months:
-            raise ValueError()
+            month = months.index(month) + 1
+            day = int(day[:-1])
+            year = int(year)
 
-        month = months.index(month_name) + 1
-        day = int(match.group(2))
-        year = int(match.group(3))
-except ValueError as error:
-    print(error)
+        if not (1 <= month <= 12 and 1 <= day <= 31):
+            continue
 
-print(f"{year:04}-{month:02}-{day:02}")
+        print(f"{year:04d}-{month:02d}-{day:02d}")
+        break
+
+    except ValueError:
+        pass

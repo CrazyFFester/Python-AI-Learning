@@ -1,4 +1,4 @@
-items = {
+menu = {
     "Baja Taco": 4.25,
     "Burrito": 7.50,
     "Bowl": 8.50,
@@ -14,18 +14,13 @@ total = 0
 
 while True:
     try:
-        user_input = input("Item: ")
-        user_input = user_input.title()
-
-        if user_input in items.keys():
-            cost_of_item = items[user_input]
-            total += cost_of_item
-        else:
-            raise ValueError("ERROR: Item is not in list")
-    except EOFError:
+        item = input("Item: ").strip().title()
+        total += menu[item]
         print(f"Total: ${total:.2f}")
-    except ValueError as error:
-        print(error)
 
+    except KeyError:
+        pass
 
-
+    except EOFError:
+        print()
+        break
