@@ -11,7 +11,15 @@ level-0-foundations/
 ├── 02-sql/ … 06-probability-statistics/      remaining Level 0 modules
 level-1-junior/NN-module/                     created when Level 1 starts
 dsa/<pattern>/                                NeetCode 150, created when DSA starts
+scripts/submit_cs50p.sh                       submit50 for every CS50P problem (POSIX sh)
 ```
+
+## CS50P submission
+
+- All 41 problems pass `check50` and were submitted on 2026-11-24 (gradebook 9/10 weeks); only the final project is left.
+- Slug is `cs50/problems/2022/python/<folder>`, except Week 5: `test_<name>` folders use `tests/<name>`.
+- Run `check50` / `submit50` from the problem's own folder; auth goes over GitHub SSH. Code lands in the private `me50/CrazyFFester` repo, one branch per slug; never edit that repo by hand.
+- Keep `scripts/submit_cs50p.sh` in sync when a problem folder is added or renamed.
 
 ## Where things go
 

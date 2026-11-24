@@ -6,16 +6,22 @@ My solutions to [CS50's Introduction to Programming with Python](https://cs50.ha
 |------|-------|----------|
 | 0 | [Functions, Variables](week-0-functions/) | indoor · playback · faces · einstein · tip |
 | 1 | [Conditionals](week-1-conditionals/) | deep · bank · extensions · interpreter · meal |
-| 2 | [Loops](week-2-loops/) | camel · coke · twttr · plates · ~~nutrition~~ (not done) |
+| 2 | [Loops](week-2-loops/) | camel · coke · twttr · plates · nutrition |
 | 3 | [Exceptions](week-3-exceptions/) | fuel · taqueria · grocery · outdated |
 | 4 | [Libraries](week-4-libraries/) | emojize · figlet · adieu · game · professor · bitcoin |
 | 5 | [Unit Tests](week-5-unit-tests/) | test_twttr · test_bank · test_plates · test_fuel |
 | 6 | [File I/O](week-6-file-io/) | lines · pizza · scourgify · shirt |
 | 7 | [Regular Expressions](week-7-regex/) | numb3rs · watch · working · um · response |
 | 8 | [Object-Oriented Programming](week-8-oop/) | seasons · jar · shirtificate |
-| 9 | Final project | Stage 1 of Dubai Property Analytics (separate repo) |
+| 9 | Final project | Stage 1 of Dubai Property Analytics (separate repo) — not submitted yet |
 
 Problems with tests: test_twttr, test_bank, test_plates, test_fuel, numb3rs, working, um, seasons, jar.
+
+## Submission status
+
+All 41 problems pass `check50` and were submitted with `submit50` on 2026-11-24; the [gradebook](https://cs50.me/cs50p) shows 9 of 10 weeks complete. Only the final project remains.
+
+Slugs are `cs50/problems/2022/python/<folder>`, except Week 5: `test_bank` → `tests/bank` (same for twttr, plates, fuel). [`scripts/submit_cs50p.sh`](../../../scripts/submit_cs50p.sh) resubmits every problem from its folder; `submit50` asks to confirm each one.
 
 ## Running
 

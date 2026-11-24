@@ -10,7 +10,7 @@ My learning log on the way from Python exercises to **AI Engineer → AI Archite
 
 | Phase | When | Status |
 |-------|------|--------|
-| [Level 0 — Foundations refresh](level-0-foundations/) | Oct 2026 – mid-Feb 2027 | 🟨 CS50P done, Python gaps in progress |
+| [Level 0 — Foundations refresh](level-0-foundations/) | Oct 2026 – mid-Feb 2027 | 🟨 CS50P problem sets submitted (final project pending), Python gaps in progress |
 | Level 1.1 — ML fundamentals | mid-Feb – Apr 2027 | ⬜ |
 | Level 1.2 — Backend engineering | May – Jun 2027 | ⬜ |
 | Level 1.3 — Deep learning with PyTorch | Summer 2027 (or Sep – Oct) | ⬜ |
@@ -30,6 +30,8 @@ level-0-foundations/
 ├── 04-linear-algebra/
 ├── 05-calculus/
 └── 06-probability-statistics/
+scripts/
+└── submit_cs50p.sh               submit50 for every CS50P problem
 pyproject.toml, uv.lock           one uv project for the whole repo (Python 3.13)
 ```
 

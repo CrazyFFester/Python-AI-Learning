@@ -4,7 +4,7 @@ Oct 2026 – mid-Feb 2027, about 15 weeks of Learn slots. Studied at UOWD but fa
 
 | # | Module | Weeks | Main resource | Status |
 |---|--------|-------|---------------|--------|
-| 01 | [Python core and tooling](01-python/) | 2 (+2) | [CS50P](01-python/cs50p/) ✅, then [gaps](01-python/gaps/) | 🟨 |
+| 01 | [Python core and tooling](01-python/) | 2 (+2) | [CS50P](01-python/cs50p/) ✅ (all problems submitted, final project pending), then [gaps](01-python/gaps/) | 🟨 |
 | 02 | [SQL](02-sql/) | 2 | SQLBolt, LeetCode Top SQL 50 | ⬜ |
 | 03 | [NumPy, Pandas, plots](03-data-stack/) | 2 | Kaggle Pandas, Kaggle Data Visualization | ⬜ |
 | 04 | [Linear algebra](04-linear-algebra/) | 2 | 3Blue1Brown, Essence of Linear Algebra | ⬜ |
